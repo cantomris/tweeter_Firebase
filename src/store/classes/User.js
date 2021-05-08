@@ -45,13 +45,6 @@ export default class User extends Model {
   }
 
   static async loginWithCredentials (credentials) {
-    // const user = this.find(credentials.email)
-    // if (!user) {
-    //   alert('There is no such user')
-    // }
-    // if (user.password !== credentials.password) {
-    //   return false
-    // }
     const user = await firebase.auth().signInWithEmailAndPassword(credentials.email, credentials.password)
       .then((credentials) => {
         // Signed in
